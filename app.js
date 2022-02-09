@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
-
+var mongoSanitize = require('express-mongo-sanitize');
 var Message = require('./schema/Message');
 
 var app = express();
@@ -47,7 +47,9 @@ app.post("/update", function(req, res, next){
 });
 
 app.get("/search/:name", function(req, res, next){
-  Message.find({username:req.params.name}, function(err, msgs){
+  var name = mongoSanitize.sanitize(req.params.name);
+  var query1 = {username:name};
+  Message.find(query1, function(err, msgs){
     if(err) throw err;
     return res.render('index', {messages: msgs});
   });
