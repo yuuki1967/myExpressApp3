@@ -48,7 +48,7 @@ app.post("/update", function(req, res, next){
 
 app.get("/search/:name", function(req, res, next){
   // var name = mongoSanitize.sanitize(req.params.name); 
-  var name = req.params.name; //NoSQL Injection #2
+  var name = req.params.name; //NoSQL Injection #26
   var query1 = {username:name};
   Message.find(query1, function(err, msgs){
     if(err) throw err;
