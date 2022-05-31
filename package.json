@@ -14,7 +14,7 @@
     "http-errors": "~1.6.3",
     "mongoose": "^6.2.1",
     "morgan": "~1.9.1",
-    "pug": "2.0.0-beta11"
+    "pug": "3.0.1"
   },
   "devDependencies": {
     "cxiast-nodejs-agent": "http://192.168.1.24:8380/iast/nodejs"
